@@ -1,0 +1,6 @@
+<ng-container *ngIf="control && control.invalid && (control.touched || control.dirty) && control.enabled">
+    <p *ngIf="control.getError('required')">Ce champs est requis</p>
+    <p *ngIf="control.getError('email')">Cette valeur n'est pas une adresse email valide</p>
+    <p *ngIf="control.getError('ssnPattern')">Cette valeur ne correspond à un registre national valide</p>
+    <p *ngIf="control.getError('ssnControl')">Mauvais chiffre de control</p>
+</ng-container>

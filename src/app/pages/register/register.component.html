@@ -1,0 +1,22 @@
+<form [formGroup]="fg" (ngSubmit)="submit()">
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" formControlName="email" required>
+        <app-error [control]="fg.get('email')"></app-error>
+    </div>
+    <div class="form-group">
+        <label>Nationalité</label>
+        <select formControlName="nationality">
+            <option *ngFor="let country of countries" [ngValue]="country.cca2">{{ country.translations.fra.common }}</option>
+        </select>
+        <app-error [control]="fg.get('nationality')"></app-error>
+    </div>
+    <div class="form-group" *ngIf="fg.get('ssn')?.enabled">
+        <label>Registre national</label>
+        <input type="text" formControlName="ssn">
+        <app-error [control]="fg.get('ssn')"></app-error>
+    </div>
+    <div class="form-group">
+        <input type="submit">
+    </div>
+</form>
